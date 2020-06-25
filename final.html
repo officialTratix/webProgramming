@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+	<script src="vue.js"></script>
+	<head>
+		<style>
+			.container { 
+				height: 25px;
+				position: relative;
+			}
+
+			.center {
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 100%;
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}	
+		</style>
+		
+		<style>
+			.button {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+        
+		<div id="app">
+			<table>
+				<th></th>
+				<th></th>
+				
+				<tr>
+					<td><input v-model="enteredUsername"></input></td>
+					<td><input type="password" v-model="enteredPassword" @change="passwordChange"></input></td>
+				</tr>
+				<tr>
+					<td style="text-align:center">Username</td>
+					<td style="text-align:center">Password</td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<div class="container">
+							<div class="center">
+								<button class="button" v-on:click="loginButtonClick">Login</button>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+			<span v-if="login">
+				<span v-if="username === enteredUsername">
+					<span v-if="password === enteredPassword">
+						<p>{{message}}</p>
+					</span>
+				</span>
+			</span>
+		</div>		
+		
+		
+        <script src="source.js"></script>
+    </body>
+	
+</html>
